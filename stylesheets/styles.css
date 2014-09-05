@@ -1,0 +1,83 @@
+body {
+  background: url("../images/sf_background3.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+header h1 {
+	font-size: 50px;
+	text-align: center;
+	background-color: blue;
+}
+
+h2 { 
+	margin: 0;
+
+}
+.top {
+	background-color: yellow;
+
+}
+
+.top h2 {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	font-size: 20px;
+
+}
+.main {
+	background-color: white;
+	height: 400px;
+	opacity: 0.8;
+
+
+}
+
+.startGame {
+	text-align: center;
+	display: none;
+}
+.startGame.main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* main section*/
+.question1 {
+	disp lay: none;
+}
+
+h2.question   {
+	background-color: orange;
+	font-size: 25px;
+}
+
+h2.questionNumber {
+	background-color: purple;
+	text-align: right;
+	font-size: 25px;
+	border: 1px black dotted;
+}
+
+/* ending */
+.endGame {
+	display: none;
+}
+
+/* bottom main */
+.correct, .incorrect,.next {
+	display: none;
+}
+
+.bottom {
+	background-color:red;
+}
+
+button {
+	background-color: green;
+	margin: 0 auto;
+	display: block;
+}
