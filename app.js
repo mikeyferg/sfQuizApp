@@ -53,6 +53,49 @@ var questionNumberDisplay = 1;
 $(document).ready(function() {
 
 
+/* Click funtionality for startNewGame button on endGame screen */
+$('.endGame').on('click', 'button', function() {
+	
+	/* resetting all variables to zero */
+	userScore = 0;
+
+	questionNumber = 0;
+
+	questionNumberDisplay = 1;
+
+	/* hiding all unnecessary elements */
+	$('.endGame').hide();
+
+	/* display correct for user */
+	$(this).closest('.container').find('.correct').hide();
+	$(this).closest('.container').find('.incorrect').hide();
+
+	/*display next button */
+	$(this).closest('.container').find('.next').hide();
+
+	/* clear check boxes */
+	$("input:checked").removeAttr("checked");
+
+	/* displaying questions and answers for number one */
+	/* display template for question */
+	$(this).closest('.container').find('.questionGeneral').show();
+	/* question 1 questions and answers */
+	$(this).closest('.container').find('.questionGeneral').find('.question').text(questionSet[questionNumber].question);
+	$(this).closest('.container').find('.questionGeneral').find('label[for=answer1]').text(questionSet[questionNumber].answer1);
+	$(this).closest('.container').find('.questionGeneral').find('label[for=answer2]').text(questionSet[questionNumber].answer2);
+	$(this).closest('.container').find('.questionGeneral').find('label[for=answer3]').text(questionSet[questionNumber].answer3);
+	$(this).closest('.container').find('.questionGeneral').find('label[for=answer4]').text(questionSet[questionNumber].answer4);
+	$(this).closest('.container').find('.questionGeneral').find('label[for=answer5]').text(questionSet[questionNumber].answer5);
+	
+	/* Display submit button */
+	$(this).closest('.container').find('.submit').show();
+
+	/* add question number to questionNumber text */
+	$(this).closest('.container').find('.questionGeneral').find('.questionNumber').text("Question number " + questionNumberDisplay + '/5');
+
+})
+			
+
 /* click on start game button to display question 1 with submit button */
 $('.startGame').on('click', "button", function() {
 	/* hide intro screen */
@@ -71,7 +114,7 @@ $('.startGame').on('click', "button", function() {
 
 
 	/* add question number to questionNumber text */
-	$(this).closest('.container').find('.questionGeneral').find('.questionNumber').text(questionNumberDisplay + '/5');
+	$(this).closest('.container').find('.questionGeneral').find('.questionNumber').text("Question number " + questionNumberDisplay + '/5');
 
 
 })
@@ -98,6 +141,8 @@ $('.questionGeneral').on('click', '.submit', function() {
 			/*display next button */
 			$(this).closest('.questionGeneral').find('.next').show();
 
+			/* increment questionNumber to 1 */
+			questionNumber ++;
 
 			console.log('correct');
 			console.log(userScore);
@@ -110,6 +155,9 @@ $('.questionGeneral').on('click', '.submit', function() {
 			/*display next button */
 			$(this).closest('.questionGeneral').find('.next').show();
 
+			/* increment questionNumber to 1 */
+			questionNumber ++;
+
 			console.log("wrong!")
 		}
  	}
@@ -117,8 +165,7 @@ $('.questionGeneral').on('click', '.submit', function() {
  	else{
     	alert("Please select an answer.");
  	}
- 	/* increment questionNumber to 1 */
-	questionNumber ++;
+ 
 
 
 
@@ -129,8 +176,7 @@ $('.next').on('click', 'button', function() {
 	if(questionNumber < questionSet.length) {
 		console.log('keep going')
 
-		/* clear check boxes */
-		$("input:checked").removeAttr("checked");
+
 		
 		/* question 1 questions and answers */
 		$(this).closest('.container').find('.questionGeneral').find('.question').text(questionSet[questionNumber].question);
@@ -159,7 +205,8 @@ $('.next').on('click', 'button', function() {
 
 		console.log(questionNumberDisplay)
 
-		
+		/* clear check boxes */
+		$("input:checked").removeAttr("checked");
 		/* add question number to questionNumber text */
 	$(this).closest('.container').find('.questionGeneral').find('.questionNumber').text(questionNumberDisplay + '/5');
 	}
@@ -180,11 +227,13 @@ $('.next').on('click', 'button', function() {
 		}
 
 		else {
-			$(this).closest('.container').find('.endGame').find('.top').find('h2').text("Keep practing buddy.");
+			$(this).closest('.container').find('.endGame').find('.top').find('h2').text("Keep practicing buddy.");
 		}
 
 		/* display endGame section */
 		$(this).closest('.container').find('.endGame').show();
+
+
 
 	}
 

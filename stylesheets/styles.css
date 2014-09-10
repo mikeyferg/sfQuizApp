@@ -38,7 +38,7 @@ h2 {
 }
 .main {
 	background-color: white;
-	height: 400px;
+	height: 300px;
 	opacity: 0.8;
 
 }
@@ -47,6 +47,9 @@ h2 {
 	marg in-bottom: 30px;
 	border: 0;
 	background-color: white;
+}
+.bottom h2 {
+	padding: 10px 0;
 }
 /* End Universal */
 
@@ -66,8 +69,7 @@ h2 {
 }
 
 .startGame button {
-	background-color: green;
-
+	background-color: #6fbd1a;
 }
 
 
@@ -81,13 +83,14 @@ h2 {
 }
 
 h2.question   {
-	background-color: orange;
+	backgr ound-color: orange;
 	font-size: 20px;
+
 }
 
 h2.questionNumber {
-	background-color: purple;
-	text-align: right;
+	background-color: #e9e9e9;
+	te xt-align: right;
 	font-size: 20px;
 	bo rder: 1px black dotted;
 }
@@ -106,9 +109,10 @@ label {
 }
 
 .submit {
-	background-color: green;
+	backg round-color: green;
 	text-align: center;
 	disp lay: none;
+	padding: 10px 0;
 }
 
 .correct, .incorrect {
